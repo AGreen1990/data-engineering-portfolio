@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alonzo | Data Analyst Apprentice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General body styling */
+        body {
+            background-color: #000;
+            color: #00ff00; /* Matrix green color */
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- NEW CSS FOR THE FIXED BACKGROUND --- */
+        /* This container holds the canvas and is fixed to the viewport */
+        .matrix-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Place it behind all other content */
+        }
+
+        /* The canvas now fills its fixed container */
+        #matrix-canvas {
+            display: block; /* Removes any default spacing */
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- UPDATED CONTENT CONTAINER --- */
+        /* This is the main scrollable content area */
+        .content-container {
+            /* We use position: relative to ensure z-index works */
+            position: relative; 
+            z-index: 1; /* Ensures content is on top of the background */
+
+            /* Centering and styling for the content box */
+            margin: 3rem auto; /* Centers the box and adds top/bottom space */
+            padding: 2rem;
+            max-width: 90%;
+            background: rgba(0, 0, 0, 0.75);
+            border-radius: 12px;
+            border: 1px solid #00ff00;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+            text-align: center;
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 768px) {
+            .content-container {
+                max-width: 700px;
+            }
+        }
+
+        /* All other styling remains the same */
+        h1 {
+            font-size: 3rem;
+            text-shadow: 0 0 5px #00ff00;
+            margin-bottom: 0.5rem;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-top: 0;
+            line-height: 1.5;
+        }
+
+ /* --- NEW: Styling for all links with neon glow --- */
+        a {
+            color: #39ff14; /* Vibrant, neon-like green */
+            font-weight: bold;
+            text-decoration: none; /* Removes the default underline */
+            /* This adds the glow effect */
+            text-shadow: 0 0 5px rgba(57, 255, 20, 0.7), 0 0 10px rgba(57, 255, 20, 0.5);
+            transition: all 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #4aff28;
+            /* Make the glow stronger on hover */
+            text-shadow: 0 0 10px rgba(74, 255, 40, 0.9), 0 0 20px rgba(74, 255, 40, 0.7);
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #00ff00;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+            margin-bottom: 1.5rem;
+            object-fit: cover;
+        }
+        .bio, .skills, .projects {
+            margin-top: 2rem;
+            text-align: left;
+        }
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid #00ff00;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 3px #00ff00;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        .list-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix-background">
+        <canvas id="matrix-canvas"></canvas>
+    </div>
+
+    <main class="content-container">
+        <img class="profile-image" src="/static/IMG_4752.jpeg" onerror="this.onerror=null;this.src='https://placehold.co/150x150/000/00ff00?text=Profile';" alt="Profile picture">
+        <h1>Hello World!</h1>
+
+        <section class="bio">
+            <h2>About Me</h2>
+            <p> My name is Alonzo Green. I am a data analyst apprentice with a passion for transforming complex data into actionable insights. I specialize in SQL, Google Sheets/Excel and R for data manipulation, statistical analysis, and some data visualization. I'm always looking for new challenges to grow my skills and contribute to meaningful projects. </p>
+        </section>
+        
+        <section class="projects">
+            <h2>My Resume</h2>
+            <ul>
+                <li>
+                    <span class="list-icon">📄</span> 
+                    <a href="https://docs.google.com/document/d/1s8Lyl0vFYdhwpU97xty4J2srtMgYYv1SE56T9cYxCQ4/edit?usp=sharing" target="_blank" rel="noopener noreferrer">View My Full Resume</a>
+                </li>
+            </ul>
+        </section>
+        
+         <section class="projects">
+            <h2>Contact Info</h2>
+            <ul>
+                <li><span class="list-icon">📧</span> <a href="mailto:AGreen1990@gmail.com">Email</a></li>
+                <li><span class="list-icon">😈</span> <a href="https://github.com/AGreen1990" target="_blank" rel="noopener noreferrer">GitHub</a></a></li>
+                <li><span class="list-icon">📊</span> <a href="https://www.kaggle.com/alonzogreen" target="_blank" rel="noopener noreferrer">Kaggle</a></li>
+                <li><span class="list-icon">🔗</span> <a href="https://www.linkedin.com/in/alonzo-green-6920a71238m1190g" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            </ul>
+        </section>
+        
+        <section class="skills">
+            <h2>My Skills</h2>
+            <ul>
+                <li><span class="list-icon">🗄️</span> SQL</li>
+                <li><span class="list-icon">📊</span> Google Sheets/Excel </li>
+                <li><span class="list-icon">📈📊</span> Data Visualization with R & Tableau </li>
+                <li><span class="list-icon">💻</span> Python</li>
+            </ul>
+        </section>
+
+        <section class="projects">
+            <h2>Live Pipeline Status</h2>
+            <ul>
+                <li>
+                    <span class="list-icon">⚙️</span> 
+                    <strong>Active GitHub Repositories:</strong> {{ live_repos }}
+                </li>
+            </ul>
+        </section>
+
+        <section class="projects">
+            <h2>Projects</h2>
+            <ul>
+                <li><span class="list-icon">📂</span> <a href="https://www.kaggle.com/datasets/alonzogreen/cyclistic-presentation" target="_blank" rel="noopener noreferrer">Cyclistic Case Study</a> - Cyclistic is a bike-share service stationed out of Chicago wants to increase annual memberships. This is an analysis of user behavior betweem casual riders and annual members. </li>
+               <li><span class="list-icon">🍿</span> <a href="https://tmdb-data-pipeline-kikdy9htrwpfnxozcfchik.streamlit.app/" target="_blank" rel="noopener noreferrer">TMDB Movies Trend Dashboard</a> - This dashboard pulls live, aggregated metrics directly from the Snowflake Gold Layer.</li>
+        </section>
+
+         <section class="projects">
+            <h2>More Info</h2>
+            <p><strong>Certifications</strong> Google Data Analytics Certificate, Google AI Essentials </p>
+        </section>
+
+    </main>
+
+    <script>
+        // --- SIMPLIFIED JAVASCRIPT ---
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Set the canvas size to fill the window. Since the canvas is fixed,
+        // this is all we need. It no longer needs to know the scroll height.
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890あいうえおカキクケコアイウエオザジズゼゾガギグゲゴサシスセソ';
+        const fontSize = 16;
+        const columns = Math.floor(canvas.width / fontSize);
+
+        const drops = [];
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ff00';
+            ctx.font = `${fontSize}px Inter, sans-serif`;
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = characters[Math.floor(Math.random() * characters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        // We only need to resize the canvas when the window itself is resized.
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            // You might want to re-initialize columns and drops here if you want
+            // the effect to reset cleanly on resize.
+        });
+
+        setInterval(draw, 50);
+    </script>
+</body>
+</html>
