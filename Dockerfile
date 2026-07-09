@@ -8,7 +8,7 @@ WORKDIR /app
 COPY requirements.txt .
 
 #4 Install python libraries into container
-RUN pip install --no cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 #5 Copy the rest of app files (main.py, templates, static)
 COPY . .
